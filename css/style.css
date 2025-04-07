@@ -1,0 +1,89 @@
+/**************************Font Face Formatting*************************/
+
+/*   Font face key
+    font-family: "Varela Round", sans-serif;
+*/
+
+/*Varela Round*/
+@import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
+/**************************End of Font Face Formatting*************************/
+
+/**************************General Formatting*************************/
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/*body Formatting*/
+body {
+    background-image: url(../images/solitaireBg.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+/*Web container formatting*/
+#webContainer {
+    max-width: 1200px;
+    margin: 0 auto;
+    height: 100vh;
+}
+
+/*Root Formatting*/
+:root {
+    --primary-font-family: "Varela Round", sans-serif;
+    --primary-font-color: white;
+    --primary-font-size: 1.2rem;
+}
+
+/**************************End of General Formatting*************************/
+
+/**************************Section Formatting*************************/
+
+/*Format header*/
+header {
+    text-align: center;
+    color: var(--primary-font-color);
+    font-family: var(--primary-font-family);
+    font-size: var(--primary-font-size);
+    letter-spacing: 2px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+/*Format cards*/
+
+/*Format card title*/
+.card .card-title {
+    font-size: 1.7rem;
+    font-family: var(--primary-font-family);
+    font-weight: bolder;
+    letter-spacing: 2px;
+}
+
+/*Format card text*/
+.card .card-text {
+    font-family: var(--primary-font-family);
+    letter-spacing: 2px;
+}
+
+/*Format card buttons*/
+.card .btn-primary {
+    border: 2px solid blue;
+    border-radius: 100px;
+    background-color: transparent;
+    color: blue;
+}
+
+/*Footer Formatting*/
+footer {
+    text-align: center;
+    color: var(--primary-font-color);
+    font-family: var(--primary-font-family);
+    font-size: var(--primary-font-size);
+    letter-spacing: 2px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+/**************************End of Section Formatting*************************/
