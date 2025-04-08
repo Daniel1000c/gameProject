@@ -53,6 +53,11 @@ header {
 
 /*Format cards*/
 
+/*Center card content*/
+.card {
+    text-align: center;
+}
+
 /*Format card title*/
 .card .card-title {
     font-size: 1.7rem;
@@ -73,6 +78,40 @@ header {
     border-radius: 100px;
     background-color: transparent;
     color: blue;
+}
+
+/**Rules Formatting**/
+
+/*Create rules container*/
+.rulesContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/*Format ol list*/
+ol {
+    background-color: rgba(0, 0, 0, 0.6);
+    font-family: var(--primary-font-family);
+    letter-spacing: 2px;
+    line-height: 2;
+    font-size: var(--primary-font-size);
+    margin: 10px;
+    color: white;
+    border-radius: 10px;
+}
+
+/*Format list items*/
+ol li {
+    margin-bottom: 10px;
+}
+
+/*Format list heading*/
+ol .listHeading {
+    font-weight: bolder;
+    text-decoration: underline;
+    font-size: 1.5rem;
 }
 
 /*Footer Formatting*/
