@@ -51,6 +51,11 @@ header {
     margin-bottom: 10px;
 }
 
+/*Format row*/
+.row {
+    justify-content: center;
+}
+
 /*Format cards*/
 
 /*Center card content*/
