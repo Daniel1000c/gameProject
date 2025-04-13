@@ -181,6 +181,59 @@ canvas {
     font-size: 1rem;
 }
 
+/*Format table container*/
+.leaderboardContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 20px auto;
+    border-radius: 10px;
+    width: 700px;
+    height: 400px;
+    overflow: auto;
+}
+
+/*Format table */
+table {
+    font-family: var(--primary-font-family);
+    letter-spacing: 2px;
+    line-height: 2;
+    font-size: var(--primary-font-size);
+    color: white;
+    text-align: center;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+/*Format table heading*/
+.tableHeader {
+    background-color: lightblue !important;
+    color: whtie;
+    border: 2px solid lightblue;
+    border-radius: 10px;
+    font-weight: bolder;
+    font-size: 1.5rem;
+    letter-spacing: 2px;
+    text-align: left;
+}
+
+/*Format table rows*/
+tr {
+    border: 2px solid lightblue;
+    text-align: left;
+}
+
+/*Make table cells have a alternating background color*/
+tr:nth-child(even) {
+    background-color: black;
+}
+
+tr:nth-child(odd) {
+   background-color: lightblue;
+}
+
+
 /*Footer Formatting*/
 footer {
     text-align: center;
