@@ -146,6 +146,41 @@ ol .listHeading {
     background-color: black;
     letter-spacing: 2px;
 }
+
+/*Format canvas container*/
+canvas {
+    border: 2px solid lightblue;
+    background-color: green;
+    border-radius: 10px;
+    display: block;
+    margin: 0 auto;
+}
+
+/*Format game controls container*/
+.gameControls {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    margin: 10px;
+}
+
+/*Format game control buttons*/
+.gameControls button {
+    display: inline-block;
+    width: 200px;
+    text-align: center;
+    padding: 15px 20px;
+    border: none;
+    border-radius: 100px;
+    background-color: lightblue;
+    font-family: var(--primary-font-family);
+    font-weight: bolder;
+    letter-spacing: 2px;
+    font-size: 1rem;
+}
+
 /*Footer Formatting*/
 footer {
     text-align: center;
