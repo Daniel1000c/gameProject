@@ -22,15 +22,9 @@ function resumeGame() {
 
     if (saveState) {
         gameState = JSON.parse(saveState);
-        tableau = gameState.tableau;
 
-        //Reload card images
-        for( let column of tableau) {
-            for(let card of column) {
-                card.img = new Image();
-                card.img.src = `images/${card.suit}/${card.value}.png`;
-            }
-        }
+        //Create alert message
+        alert("Game resumed!");
     } else {
         //Create alert message
         alert("No game saved.");
