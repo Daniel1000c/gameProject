@@ -150,7 +150,7 @@ ol .listHeading {
 /*Format canvas container*/
 canvas {
     border: 2px solid lightblue;
-    background-color: green;
+    background-color: black;
     border-radius: 10px;
     display: block;
     margin: 0 auto;
