@@ -10,23 +10,58 @@
         <title>LeaderBoard</title>
     </head>
     <body>
-        <header>
-            <h1>LeaderBoard</h1>
-        </header>
-        <main>
-            
-            <!--Create buttons container-->
-            <div class="btnContainer">
+        <div id="webContainer">
+            <header>
+                <h1>LeaderBoard</h1>
+            </header>
+            <main>
+                <!--Create leaderboard container-->
+                <div class="leaderboardContainer">
 
-                <!--Home Button-->
-                <a href="index.html">Home</a>
+                    <!--Create leaderboard table-->
+                    <table>
 
-                <!--Leaderboard Button-->
-                <a href="leaderboard.html">Score</a>
-            </div>
-        </main>
-        <footer>
-            &copy; 2024 Broward College
-        </footer>
+                        <!--Create table headers-->
+                        <tr class="tableHeader">
+                            <th>Player</th>
+                            <th>Score</th>
+                            <th>Time</th>
+                        </tr>
+
+                        <!---Create default template rows-->
+                        <tr>
+                            <td>Player 1</td>
+                            <td>0</td>
+                            <td>0</td>
+                        </tr>
+
+                        <tr>
+                            <td>Player 2</td>
+                            <td>0</td>
+                            <td>0</td>
+                        </tr>
+
+                        <tr>
+                            <td>Player 3</td>
+                            <td>0</td>
+                            <td>0</td>
+                        </tr>
+                        
+                    </table>
+                </div>
+                <!--Create buttons container-->
+                <div class="btnContainer">
+
+                    <!--Home Button-->
+                    <a href="index.html">Home</a>
+
+                    <!--Leaderboard Button-->
+                    <a href="leaderboard.html">Score</a>
+                </div>
+            </main>
+            <footer>
+                &copy; 2025 Solitaire
+            </footer>    
+        </div>
     </body>
 </html>
