@@ -36,3 +36,4 @@ document.getElementById("save").addEventListener("click", saveGame);
 
 //Create event listener for resume button
 document.getElementById("resume").addEventListener("click", resumeGame);
+
