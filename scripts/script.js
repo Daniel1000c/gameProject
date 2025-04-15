@@ -46,6 +46,9 @@ const foodColor = "red";
 //Create unitsize 
 const unitSize = 25;
 
+//Crate is game over variable
+let isGameOver = false;
+
 //Create isrunning variable
 let isRunning = false;
 
@@ -71,6 +74,9 @@ let snake = [
     {x: 0, y: 0}
 ];
 
+//Create player name variable
+let playerName = "";
+
 //Create key down event listener for player to move snake
 window.addEventListener("keydown", changeDirection);
 
@@ -89,8 +95,21 @@ pauseButton.addEventListener("click", pauseGame);
 //Create pause button event listener
 resumeButton.addEventListener("click", resumeGame);
 
+//Call prompt for player name
+promptName();
+
 //Call game start function
 gameStart();
+
+//Create prompt for player name
+function promptName () {
+    playerName = prompt("Please enter your name");
+
+    //Create if statement if player name is null
+    if(!playerName) {
+        console.log(playerName = "Anonymous"); 
+    }
+}
 
 //Create game start function
 function gameStart() {
@@ -135,7 +154,7 @@ function nextTick() {
             //Call next tick function
             nextTick();
         }, 75);
-    } else {
+    } else if (isGameOver) {
         //Display game over message function
         displayGameOver();
     }
@@ -250,18 +269,22 @@ function checkGameOver() {
     switch(true) {
         case (snake[0].x < 0):
             isRunning = false;
+            isGameOver = true;
             break;
 
         case (snake[0].x >= gameWidth):
             isRunning = false;
+            isGameOver = true;
             break;
 
         case (snake[0].y < 0):
             isRunning = false;
+            isGameOver = true;
             break;
 
         case (snake[0].y >= gameHeight):
             isRunning = false;
+            isGameOver = true;
             break;
     }
 
@@ -269,6 +292,7 @@ function checkGameOver() {
     for(let i = 1; i < snake.length; i+=1) {
         if (snake[i].x == snake[0].x && snake[i].y == snake[0].y) {
             isRunning = false;
+            isGameOver = true;
         }
     }
 }
@@ -279,6 +303,23 @@ function displayGameOver() {
     gameCtx.fillStyle = "white";
     gameCtx.fillText("Game Over!", gameWidth / 2.2, gameHeight / 2);
     isRunning = false;
+
+    //Save player name, score, and timestamp
+    const gameOverData = {
+        name: playerName || "Anonymous",
+        score: gameScore,
+        dateTime: new Date().toLocaleString()
+    }
+
+    //Save game data to local storage
+    const savedScores = JSON.parse(localStorage.getItem("leaderboard")) || [];
+    savedScores.push(gameOverData);
+
+    //Save game data to local storage
+    localStorage.setItem("leaderboard", JSON.stringify(savedScores));
+
+    //Console data
+    console.log(gameOverData);
 }
 
 //Create function to reset game
@@ -344,13 +385,14 @@ function saveGame() {
 //Create function to pause game
 function pauseGame() {
 	isRunning = false;
+    isGameOver = false;
 	alert("Game Paused");
 }
 
 
 //Create function to resume game
 function resumeGame() {
-	if (!isRunning) {
+	if (!isRunning && !isGameOver) {
 		isRunning = true;
 		nextTick();
 	}
