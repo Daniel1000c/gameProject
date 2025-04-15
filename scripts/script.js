@@ -1,3 +1,8 @@
+//Create global player name prompt
+let player = prompt("Enter your name");
+
+let gameStart = false; 
+
 //---------Step One: Create canvas
 const canvas = document.getElementById("gameCanvas");
 
@@ -66,7 +71,10 @@ function snakeMove() {
         food = {
             x: Math.floor(Math.random() * tileCount),
             y: Math.floor(Math.random() * tileCount)
-        }
+        };
+
+        food.x = Math.max(0, Math.min(food.x, tileCount - 1));
+        food.y = Math.max(0, Math.min(food.y, tileCount - 1));
     } else {
         snake.pop();
     }
@@ -114,6 +122,13 @@ function drawFood() {
 
 //---------Step Eight: Create key event listener
 document.addEventListener("keydown", e => {
+
+    //Create if statement
+    if (!gameStart) {
+        gameInterval = setInterval(drawGame, 100);
+        gameStart = true;
+    }
+    
     //Create switch statement for keys
     switch (e.key) {
         case "ArrowUp":
@@ -145,8 +160,6 @@ document.addEventListener("keydown", e => {
 
 //---------Step Nine: Create save game function
 function saveGame() {
-    const player = document.getElementById("playerName").value || "Player";
-
     //Create const called game data
     const gameData = {
         player,
@@ -193,7 +206,6 @@ function resumeGame() {
 
 //---------Step Eleven: Create Save player score function
 function savedScore() {
-    const player = document.getElementById("playerName").value || "Player";
     const playertime = new Date().toLocaleString();
     const scoreData = {
         player,
@@ -206,4 +218,8 @@ function savedScore() {
     localStorage.setItem("leaderboard", JSON.stringify(leaderboard));
 }
 
-gameInterval = setInterval(drawGame, 100);
+
+
+//Create event listener for save game button and resume button
+document.getElementById("save").addEventListener("click", saveGame);
+document.getElementById("resume").addEventListener("click", resumeGame);
