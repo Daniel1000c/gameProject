@@ -1,4 +1,4 @@
-/**************************Font Face Formatting*************************/
+ /**************************Font Face Formatting*************************/
 
 /*   Font face key
     font-family: "Varela Round", sans-serif;
@@ -15,18 +15,23 @@
     box-sizing: border-box;
 }
 
+
 /*body Formatting*/
 body {
-    background-image: url(../images/snakeGame.jpg);
+	background-image: url(../images/snakeGame.jpg);
     background-size: cover;
     background-attachment: fixed;
+	background-position: center;
 }
 
 /*Web container formatting*/
 #webContainer {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
     max-width: 1200px;
     margin: 0 auto;
-    height: 100vh;
 }
 
 /*Root Formatting*/
@@ -47,13 +52,14 @@ header {
     font-family: var(--primary-font-family);
     font-size: var(--primary-font-size);
     letter-spacing: 2px;
-    margin-top: 10px;
-    margin-bottom: 10px;
+	margin-top: 2%;
 }
 
 /*Format row*/
 .row {
     justify-content: center;
+	display: flex;
+	flex-wrap: wrap;
 }
 
 /*Format cards*/
@@ -61,6 +67,9 @@ header {
 /*Center card content*/
 .card {
     text-align: center;
+	display: flex;
+	flex-direction: column;
+	min-height: 100%;
 }
 
 /*Format card title*/
@@ -94,9 +103,10 @@ header {
     justify-content: center;
     align-items: center;
     background-color: rgba(0, 0, 0, 0.6);
-    margin: 20px;
+    margin: 2% 10% 2% 10%;
     border-radius: 10px;
 }
+
 
 /*Format ol list*/
 ol {
@@ -155,6 +165,7 @@ ol .listHeading {
     font-size: 1.4rem;
     color: white;
     text-align: center;
+	
 }
 
 /*Format canvas container*/
@@ -162,6 +173,7 @@ ol .listHeading {
     display: block;
     margin: 0 auto;
     border-radius: 10px;
+	height: 70vh;
 }
 
 /*Format game controls container*/
@@ -217,7 +229,7 @@ table {
 /*Format table heading*/
 .tableHeader {
     background-color: darkgreen !important;
-    color: whtie;
+    color: white;
     border: 2px solid lightblue;
     border-radius: 10px;
     font-weight: bolder;
@@ -250,8 +262,9 @@ footer {
     font-family: var(--primary-font-family);
     font-size: var(--primary-font-size);
     letter-spacing: 2px;
-    margin-top: 10px;
-    margin-bottom: 10px;
+    margin-top: 0px;
+    margin-bottom: 15px;
+	bottom: 0;
 }
 
 /**************************End of Section Formatting*************************/

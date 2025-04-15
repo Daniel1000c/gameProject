@@ -10,6 +10,21 @@ const scoreText = document.querySelector("#score");
 //Create reset button variable
 const resetButton = document.querySelector("#reset");
 
+//Create saved game variable
+//const savedGame = document.querySelector("#savedGame");
+
+//Create load button variable
+const loadButton = document.querySelector("#load");
+
+//Create save button variable
+const saveButton = document.querySelector("#save");
+
+//Create pause button variable
+const pauseButton = document.querySelector("#pause");
+
+//Create resume button variable
+const resumeButton = document.querySelector("#resume");
+
 //Create game width
 const gameWidth = gameboard.width;
 
@@ -63,7 +78,16 @@ window.addEventListener("keydown", changeDirection);
 resetButton.addEventListener("click", resetGame);
 
 //Create pause button event listener
+loadButton.addEventListener("click", loadGame);
+
+//Create reset button event listener
+saveButton.addEventListener("click", saveGame);
+
+//Create pause button event listener
 pauseButton.addEventListener("click", pauseGame);
+
+//Create pause button event listener
+resumeButton.addEventListener("click", resumeGame);
 
 //Call game start function
 gameStart();
@@ -73,8 +97,9 @@ function gameStart() {
     //Set isrunning to true
     isRunning = true;
 
-    //Add score counter
-    scoreText.textContent = scoreText;
+    //Add score counter (replaced line with one that fixes button issue)
+    //scoreText.textContent = scoreText;
+	scoreText.textContent = gameScore;
 
     //Call createFood function
     createFood();
@@ -147,10 +172,10 @@ function moveSnake() {
 
     snake.unshift(snakeHead);
 
-    //Check if snake has eaten food
+    //Check if snake has eaten food (changed score to gameScore)
     if(snake[0].x == foodx && snake[0].y == foody) {
-        score += 1;
-        scoreText.textContent = score;
+        gameScore += 1;
+        scoreText.textContent = gameScore;
         createFood();
     } else {
         snake.pop();
@@ -259,7 +284,7 @@ function displayGameOver() {
 //Create function to reset game
 function resetGame() {
     //Set score to 0
-    score = 0;
+    gameScore = 0;
 
     //Set velocity to 0
     velocityX = unitSize;
@@ -279,3 +304,54 @@ function resetGame() {
     gameStart();
 }
 
+
+//Create function to load game
+function loadGame() {
+	const savedGame = JSON.parse(localStorage.getItem("snakeGame"));
+	if (savedGame) {
+		gameScore = savedGame.gameScore;
+		velocityX = savedGame.velocityX;
+		velocityY = savedGame.velocityY;
+		snake = savedGame.snake;
+		foodx = savedGame.foodx;
+		foody = savedGame.foody;
+		
+		alert("Loading last saved game..");
+		resumeGame();
+		
+	} else { 
+		alert("No record found. Restarting game.");
+		resetGame();
+	}
+}
+
+//Create function to save game
+function saveGame() {
+	const gameData = {
+		gameScore,
+		velocityX,
+		velocityY,
+		snake,
+		foodx,
+		foody
+	};
+	localStorage.setItem("snakeGame", JSON.stringify(gameData));
+	alert("Game Saved");
+	
+}
+
+
+//Create function to pause game
+function pauseGame() {
+	isRunning = false;
+	alert("Game Paused");
+}
+
+
+//Create function to resume game
+function resumeGame() {
+	if (!isRunning) {
+		isRunning = true;
+		nextTick();
+	}
+}
