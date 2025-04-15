@@ -54,6 +54,9 @@ function drawGame() {
 
         //Call draw food function
         drawFood();
+
+        //Call update score function
+        updatePlayerScore();
     }
 }
 
@@ -223,3 +226,8 @@ function savedScore() {
 //Create event listener for save game button and resume button
 document.getElementById("save").addEventListener("click", saveGame);
 document.getElementById("resume").addEventListener("click", resumeGame);
+
+//Create update player score function
+function updatePlayerScore() {
+    document.getElementById("score").textContent = "Score: " + score;
+}
