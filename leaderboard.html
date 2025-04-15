@@ -20,33 +20,16 @@
 
                     <!--Create leaderboard table-->
                     <table>
+                        <thead class="leaderboardHeader">
+                            <tr>
+                                <th>Player</th>
+                                <th>Score</th>
+                                <th>Date/Time</th>
+                            </tr>
+                        </thead>
 
-                        <!--Create table headers-->
-                        <tr class="tableHeader">
-                            <th>Player</th>
-                            <th>Score</th>
-                            <th>Time</th>
-                        </tr>
-
-                        <!---Create default template rows-->
-                        <tr>
-                            <td>Player 1</td>
-                            <td>0</td>
-                            <td>0</td>
-                        </tr>
-
-                        <tr>
-                            <td>Player 2</td>
-                            <td>0</td>
-                            <td>0</td>
-                        </tr>
-
-                        <tr>
-                            <td>Player 3</td>
-                            <td>0</td>
-                            <td>0</td>
-                        </tr>
-                        
+                        <!--Insert leaderboard data-->
+                        <tbody id="leaderboardBody"></tbody>
                     </table>
                 </div>
                 <!--Create buttons container-->
@@ -60,5 +43,25 @@
                 &copy; 2025 Snake
             </footer>    
         </div>
+
+        <!--Create script tag-->
+        <script>
+            //Create id for leaderboard body
+            const leaderboardBody = document.getElementById("leaderboardBody");
+
+            //Create const for leaderboard data
+            const leaderboard =  JSON.parse(localStorage.getItem("leaderboard")) || [];
+
+            //Loop through leaderboard data
+            leaderboard.forEach((playerScore, index) => {
+                const row = document.createElement("tr");
+                row.innerHTML = `
+                    <td>${playerScore.name}</td>
+                    <td>${playerScore.score}</td>
+                    <td>${playerScore.dateTime}</td>
+                `;
+                leaderboardBody.appendChild(row);
+            })
+        </script>
     </body>
 </html>
