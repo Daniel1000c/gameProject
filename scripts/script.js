@@ -61,6 +61,32 @@ function drawGame() {
 }
 
 //---------Step Three: create snake move function
+
+function generateFood() {
+    let newApples;
+    let isOverlapping;
+
+    do {
+        isOverlapping = false;
+        newApples = {
+            x: Math.floor(Math.random() * tileCount),
+            y: Math.floor(Math.random() * tileCount)
+        };
+
+        newApples.x = Math.max(0, Math.min(newApples.x, tileCount - 1));
+        newApples.y = Math.max(0, Math.min(newApples.y, tileCount - 1));
+
+        for (let part of snake) {
+            if (part.x === newApples.x && part.y === newApples.y) {
+                isOverlapping = true;
+                break;
+            }
+        }
+    } while (isOverlapping);
+
+    return newApples;
+}
+
 function snakeMove() {
     //Create new head position
     const head = {x: snake[0].x + directionx, y: snake[0].y + directiony};
@@ -71,13 +97,7 @@ function snakeMove() {
         //Add one to score
         score++;
 
-        food = {
-            x: Math.floor(Math.random() * tileCount),
-            y: Math.floor(Math.random() * tileCount)
-        };
-
-        food.x = Math.max(0, Math.min(food.x, tileCount - 1));
-        food.y = Math.max(0, Math.min(food.y, tileCount - 1));
+        food = generateFood();
     } else {
         snake.pop();
     }
