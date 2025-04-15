@@ -158,6 +158,11 @@ ol .listHeading {
 }
 
 /*Format canvas container*/
+#gameBoard {
+    display: block;
+    margin: 0 auto;
+    border-radius: 10px;
+}
 
 /*Format game controls container*/
 .gameControls {
