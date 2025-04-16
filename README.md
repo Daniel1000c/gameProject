@@ -3,7 +3,7 @@
 This is a regular snake game that allows to play as a snake eating apples in order to grow longer. Keep collecting apples until you hit the walls or accidentally eat yourself.
 
 ### Live Site Link:
-[Link Text](hhttps://daniel1000c.github.io/gameProject/)
+[Link Text](https://daniel1000c.github.io/gameProject/)
 
 ![Snake Game Screenshot](images/snakeGameScreenshot.png)
 
